@@ -1,2 +1,3 @@
-# TwitterMorseBot
-@realmorsebot Translate tweets to Morse Code!
+@realmorsebot
+
+Translate tweets to Morse Code!
