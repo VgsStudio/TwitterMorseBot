@@ -26,10 +26,27 @@ print(tweet_pai.text + ' - ' + ' TWEET DO PAI ' )
 # RESPONDE O TWEET FILHO COM O TEXTO EM MORSE
 morse = tweet_pai.text
 
-
 morse[0:3]
 
 
 s =  '@vitor @luiza vitor'
 while '@' in s:
     s.replace((s[s.find('@'):s.find(' ')+1]), '')
+
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+userID = 'vgs_studio' # Usuário
+
+mentions = api.user_timeline(userID, 
+                           tweet_mode = 'extended'
+                           )
+
+# MENÇÕES
+for info in reversed(mentions[:100]):
+    print("ID: {}".format(info.id))
+    print(info.created_at)
+    print(info.full_text)
+    print("\n")
